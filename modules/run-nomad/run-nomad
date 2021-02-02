@@ -157,6 +157,16 @@ EOF
 client {
   enabled = true
 }
+
+plugin "docker" {
+  config {
+    auth {
+      # Nomad will prepend "docker-credential-" to the helper value and call
+      # that script name.
+      helper = "ecr-login"
+    }
+  }
+}
 EOF
 )
   fi
